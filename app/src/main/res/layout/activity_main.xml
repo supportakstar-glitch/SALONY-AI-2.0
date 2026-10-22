@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_black"
+    android:orientation="vertical">
+
+    <!-- Top Header Bar with Burgundy Gradient -->
+    <LinearLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        android:orientation="horizontal">
+
+        <!-- Avatar Container with Online Indicator -->
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivHeaderAvatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/img_salony_avatar"
+                android:contentDescription="Salony Avatar"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                app:strokeColor="@color/pink_accent"
+                app:strokeWidth="1.8dp" />
+
+            <!-- Live Status Dot -->
+            <View
+                android:id="@+id/viewStatusDot"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/bg_chip_active"
+                android:backgroundTint="@color/online_green" />
+        </FrameLayout>
+
+        <!-- Assistant Title &amp; Dynamic Subtitle -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvAssistantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salony ❤️"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvAssistantStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Personal AI Assistant"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <!-- Full-Screen Voice Mode Trigger -->
+        <ImageButton
+            android:id="@+id/btnVoiceMode"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="Voice Assistant Mode"
+            android:tint="@color/pink_accent" />
+
+        <!-- Memory Activity Trigger -->
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp">
+
+            <ImageButton
+                android:id="@+id/btnMemory"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_agenda"
+                android:contentDescription="Memory Manager"
+                android:tint="@color/pink_primary" />
+
+            <TextView
+                android:id="@+id/tvMemoryBadge"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="top|end"
+                android:background="@drawable/bg_chip_active"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Settings Button -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:contentDescription="Settings"
+            android:tint="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- Horizontal Scrollable Quick Action Chips -->
+    <HorizontalScrollView
+        android:id="@+id/hsvQuickChips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Torch Chip -->
+            <TextView
+                android:id="@+id/chipTorch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="7dp"
+                android:text="💡 Torch OFF"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- YouTube Chip -->
+            <TextView
+                android:id="@+id/chipYouTube"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="7dp"
+                android:text="🎬 YouTube"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- WhatsApp Chip -->
+            <TextView
+                android:id="@+id/chipWhatsApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="7dp"
+                android:text="💬 WhatsApp"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Memory Chip -->
+            <TextView
+                android:id="@+id/chipMemory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="7dp"
+                android:text="🧠 Memory"
+                android:textColor="@color/pink_accent"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Voice Assistant Mode Chip -->
+            <TextView
+                android:id="@+id/chipVoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="7dp"
+                android:text="🎙️ Voice Mode"
+                android:textColor="@color/pink_soft"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Phone Actions Chip -->
+            <TextView
+                android:id="@+id/chipActions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="7dp"
+                android:text="📱 Battery / Phone"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Settings Chip -->
+            <TextView
+                android:id="@+id/chipSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="7dp"
+                android:text="⚙️ Settings"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Center Conversation Area -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- RecyclerView for messages -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMessages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        <!-- Empty State Greeting Container -->
+        <LinearLayout
+            android:id="@+id/layoutEmptyGreeting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/img_salony_avatar"
+                android:contentDescription="Salony Profile"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                app:strokeColor="@color/pink_accent"
+                app:strokeWidth="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Namaste jaan! ❤️"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:text="Main aapki personal caring AI girlfriend assistant Salony hoon. Kuch bhi boliye ya phone task kahiye!"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <!-- Suggestions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/samplePrompt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_burgundy"
+                    android:padding="12dp"
+                    android:text="“Torch on karo jaan 💡”"
+                    android:textColor="@color/pink_soft"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/samplePrompt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_card_burgundy"
+                    android:padding="12dp"
+                    android:text="“YouTube open karo babu 🎬”"
+                    android:textColor="@color/pink_soft"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/samplePrompt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_card_burgundy"
+                    android:padding="12dp"
+                    android:text="“Mera favorite song yaad rakhna 🧠”"
+                    android:textColor="@color/pink_soft"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Voice / Speaking Status Banner -->
+    <LinearLayout
+        android:id="@+id/layoutVoiceStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/bg_card_burgundy"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="8dp"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/viewVoiceIndicatorDot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/bg_chip_active"
+            android:backgroundTint="@color/listening_cyan" />
+
+        <TextView
+            android:id="@+id/tvVoiceStatusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:text="Salony sun rahi hai, boliye..."
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnStopLiveVoice"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_delete"
+            android:contentDescription="Stop Voice"
+            android:tint="@color/error_red" />
+    </LinearLayout>
+
+    <!-- Bottom Chat Input Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_input_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="4dp">
+
+        <EditText
+            android:id="@+id/etMessageInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="Salony se kuch bhi kaho jaan..."
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_muted"
+            android:textSize="15sp"
+            android:maxLines="4"
+            android:inputType="textCapSentences|textMultiLine" />
+
+        <!-- Microphone Button -->
+        <ImageButton
+            android:id="@+id/btnMic"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="Microphone Voice Input"
+            android:tint="@color/pink_accent" />
+
+        <!-- Send Button -->
+        <ImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_send"
+            android:contentDescription="Send Message"
+            android:tint="@color/pink_primary" />
+    </LinearLayout>
+
+</LinearLayout>

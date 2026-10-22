@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_black"
+    android:orientation="vertical">
+
+    <!-- Top Navigation Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header_gradient"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnBackToChat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back to Chat"
+            android:tint="@color/text_primary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salony Voice Mode"
+                android:textColor="@color/pink_accent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvOrbSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Continuous Voice Assistant"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnVoiceSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:contentDescription="Voice Settings"
+            android:tint="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- Center Orb Area -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Animated AI Orb Custom Canvas View -->
+        <com.akstarcompany.salony.ai.ui.AiOrbView
+            android:id="@+id/aiOrbView"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_gravity="center" />
+
+        <!-- Status Text Over/Under Orb -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp">
+
+            <TextView
+                android:id="@+id/tvOrbStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip_active"
+                android:paddingStart="14dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="6dp"
+                android:text="TAP MIC TO START"
+                android:textColor="@color/pink_accent"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- User spoken query display -->
+            <TextView
+                android:id="@+id/tvUserVoiceTranscript"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <!-- Salony spoken reply display -->
+            <TextView
+                android:id="@+id/tvSalonyVoiceReply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_card_burgundy"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:padding="12dp"
+                android:textColor="@color/pink_soft"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Bottom Controls for Voice Assistant Mode -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp"
+        android:orientation="horizontal">
+
+        <!-- Stop / Mute Button -->
+        <ImageButton
+            android:id="@+id/btnOrbStop"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/bg_card_burgundy"
+            android:src="@android:drawable/ic_delete"
+            android:contentDescription="Stop Speaking"
+            android:tint="@color/text_secondary" />
+
+        <!-- Main Pulsing Microphone Toggle Button -->
+        <ImageButton
+            android:id="@+id/btnOrbMic"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_user_bubble"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="Start / Stop Listening"
+            android:tint="@color/white" />
+
+        <!-- Chat Button -->
+        <ImageButton
+            android:id="@+id/btnOrbChat"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/bg_card_burgundy"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:contentDescription="Switch to Chat"
+            android:tint="@color/text_secondary" />
+    </LinearLayout>
+
+</LinearLayout>

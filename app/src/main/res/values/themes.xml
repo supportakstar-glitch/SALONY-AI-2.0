@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SALONY AI Main Theme -->
+    <style name="Theme.SalonyAI" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/pink_accent</item>
+        <item name="colorPrimaryVariant">@color/pink_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/pink_soft</item>
+        <item name="colorOnSecondary">@color/bg_black</item>
+        <item name="android:windowBackground">@color/bg_black</item>
+        <item name="android:statusBarColor">@color/bg_black</item>
+        <item name="android:navigationBarColor">@color/bg_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Legacy alias to ensure no breaking references -->
+    <style name="Theme.MyApplication" parent="Theme.SalonyAI" />
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SALONY AI Dark Burgundy & Pink Palette -->
+    <color name="bg_black">#000000</color>
+    <color name="bg_dark_burgundy">#14050E</color>
+    <color name="card_burgundy">#220A19</color>
+    <color name="card_burgundy_border">#4E1639</color>
+    
+    <color name="pink_primary">#E91E63</color>
+    <color name="pink_accent">#FF4081</color>
+    <color name="pink_soft">#FF80AB</color>
+    <color name="pink_deep">#C2185B</color>
+    
+    <color name="burgundy_gradient_start">#3B0C27</color>
+    <color name="burgundy_gradient_end">#16040F</color>
+    
+    <color name="ai_bubble">#260A1B</color>
+    <color name="ai_bubble_border">#52173C</color>
+    <color name="user_bubble">#E91E63</color>
+    
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#DFB2CA</color>
+    <color name="text_muted">#976F84</color>
+    
+    <color name="online_green">#00E676</color>
+    <color name="listening_cyan">#00E5FF</color>
+    <color name="speaking_pink">#FF4081</color>
+    <color name="error_red">#FF5252</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+</resources>
